@@ -6,95 +6,486 @@
     <title>Schematio – Interaktywne Diagramy Urządzeń ze Wsparciem AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        :root {
+            --primary: #1f6feb;
+            --primary-dark: #1558b0;
+            --secondary: #f0f6ff;
+            --accent: #ff6b6b;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #e6eef7;
-            color: #333;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
-        h1, h2 {
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(31, 111, 235, 0.9) 0%, rgba(21, 88, 176, 0.9) 100%), url('diagram_annotated.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
             text-align: center;
-            color: #1f6feb;
+            position: relative;
+            overflow: hidden;
         }
-        ul, ol {
-            margin-left: 20px;
-            line-height: 1.8;
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
         }
-        .screenshot {
-            border: 2px dashed #ccc;
-            height: 250px;
-            margin: 20px 0;
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            background: var(--secondary);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
-            border-radius: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 24px;
         }
-        .cta {
-            text-align: center;
-            padding: 15px 25px;
-            background-color: #1f6feb;
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+        }
+        
+        .step-card {
+            position: relative;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow);
+            padding: 30px;
+            padding-left: 70px;
+            counter-increment: step-counter;
+        }
+        
+        .step-card:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 25px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
             color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
+            font-size: 1.2rem;
         }
-        .cta:hover {
-            background-color: #1558b0;
+        
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .screenshot {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            margin: 50px 0;
+            background-color: var(--card);
+            position: relative;
+        }
+        
+        .screenshot img, .screenshot video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-caption {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.5;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .video-caption i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .clients {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .client-card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .client-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background: var(--card);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                background-position: center center;
+                padding: 60px 0;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-card, .step-card, .client-card {
+                padding: 25px;
+            }
+            
+            .video-caption {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Schematio – Interaktywne Diagramy Urządzeń ze Wsparciem AI</h1>
-        <p style="text-align: center; font-size: 1.1em;">Pozwól swoim klientom kupować szybciej, łatwiej i skuteczniej!</p>
-
-        <h2>Dlaczego warto wybrać Schematio?</h2>
-        <ul>
-            <li><strong>Przejrzysta wizualizacja</strong> – własne diagramy urządzeń z zaznaczonymi częściami.</li>
-            <li><strong>Automatyczne rozpoznawanie części dzięki AI</strong> – szybkie i precyzyjne oznaczanie komponentów.</li>
-            <li><strong>Łatwa integracja</strong> z Twoim obecnym sklepem internetowym.</li>
-            <li><strong>Nieograniczona skalowalność</strong> – bez limitów urządzeń i diagramów.</li>
-            <li><strong>Zwiększona konwersja</strong> dzięki intuicyjnej prezentacji części.</li>
-            <li><strong>Połączenia między diagramami</strong> – szybka lokalizacja komponentów.</li>
-            <li><strong>Koniec z nieporozumieniami</strong> – jasna identyfikacja części bez potrzeby telefonicznych tłumaczeń.</li>
-        </ul>
-
-        <div class="screenshot">Wstaw tutaj przykładowy screenshot 1</div>
-
-        <h2>Jak działa Schematio?</h2>
-        <ol>
-            <li>Dodajesz diagram urządzenia do systemu.</li>
-            <li>AI automatycznie rozpoznaje części.</li>
-            <li>Dodajesz opisy, zdjęcia i linki do produktów.</li>
-            <li>Tworzysz powiązania między elementami i diagramami.</li>
-            <li>Klient ogląda diagram, sprawdza szczegóły i kupuje!</li>
-        </ol>
-
-        <div class="screenshot">Wstaw tutaj przykładowy screenshot 2</div>
-
-        <h2>Kto korzysta ze Schematio?</h2>
-        <ul>
-            <li><strong>Właściciele sklepów internetowych</strong> – większa sprzedaż i lojalność klientów.</li>
-            <li><strong>Producenci sprzętu</strong> – atrakcyjna prezentacja katalogu części.</li>
-        </ul>
-
-        <div style="text-align:center;">
-            <a href="#" class="cta">Skontaktuj się z nami!</a>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Schematio – Interaktywne Diagramy Urządzeń ze Wsparciem AI</h1>
+            <p>Pozwól swoim klientom kupować szybciej, łatwiej i skuteczniej!</p>
         </div>
     </div>
+    
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dlaczego warto wybrać Schematio?</h2>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Przejrzysta wizualizacja</h3>
+                    <p>Własne diagramy urządzeń z zaznaczonymi częściami, ułatwiające klientom zakup.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Stylizacja zgodna z marką</h3>
+                    <p>Wybierz kolor, czcionkę i logo, aby dopasować wygląd do identyfikacji Twojej firmy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Rozpoznawanie części przez AI</h3>
+                    <p>Szybkie i precyzyjne oznaczanie komponentów dzięki zaawansowanej sztucznej inteligencji.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Łatwa integracja</h3>
+                    <p>Bezproblemowe połączenie z Twoim obecnym sklepem internetowym.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3>Nieograniczona skalowalność</h3>
+                    <p>Bez limitów urządzeń i diagramów, rozwijaj się bez ograniczeń.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Zwiększona konwersja</h3>
+                    <p>Intuicyjna prezentacja części przekłada się na lepsze wyniki sprzedażowe.</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <img src="pic1.png" alt="Schematio Example" />
+            </div>
+        </div>
+    </section>
+    
+    <!-- How it works -->
+    <section class="section" style="background-color: var(--secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Jak działa Schematio?</h2>
+            </div>
+            
+            <div class="steps">
+                <div class="step-card">
+                    <h3>Wybór diagramu</h3>
+                    <p>Wybierasz diagram urządzenia, który będzie podstawą wizualizacji.</p>
+                </div>
+                
+                <div class="step-card">
+                    <h3>Import części</h3>
+                    <p>Dodajesz listę części w formacie Excel, PDF lub CSV.</p>
+                </div>
+                
+                <div class="step-card">
+                    <h3>Przetwarzanie AI</h3>
+                    <p>AI automatycznie przetwarza dane i tworzy połączenia między diagramem i częściami.</p>
+                </div>
+                
+                <div class="step-card">
+                    <h3>Mapowanie części</h3>
+                    <p>AI pomaga zaznaczyć obrysy części na diagramie.</p>
+                </div>
+                
+                <div class="step-card">
+                    <h3>Gotowe do użycia</h3>
+                    <p>Klient ogląda diagram, sprawdza szczegóły i kupuje!</p>
+                </div>
+            </div>
+            
+            <div class="screenshot">
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>Automatyczna analiza diagramu. AI oznacza numery części i analizuje dokument z opisem, łącząc je w spójną całość.
+                </div>
+                <video controls autoplay muted>
+                    <source src="analyze-diagram.m4v" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+            </div>
+            
+            <div class="screenshot">
+                <div class="video-caption">
+                    <i class="fas fa-draw-polygon"></i>Na diagramie z zaznaczonymi numerami dodatkowo można zaznaczyć obrysy części. AI pomaga wyznaczyć obrysy.
+                </div>
+                <video controls autoplay muted>
+                    <source src="annotate.m4v" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+            </div>
+            
+            <div class="screenshot">
+                <div class="video-caption">
+                    <i class="fas fa-eye"></i>Strona z widokiem dla klienta. Każde urządzenia ma własną podstronę z listą diagramów. Łatwa nawigacja i wizualna reprezentacja urządzenia pozwala na szybki wybór części. Link do sklepu umoliwia bezbolesny zakup.
+                </div>
+                <video controls autoplay muted>
+                    <source src="view_parts.m4v" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Clients Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kto korzysta ze Schematio?</h2>
+            </div>
+            
+            <div class="clients">
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Właściciele sklepów internetowych</h3>
+                    <p>Zwiększ sprzedaż i lojalność klientów dzięki intuicyjnej prezentacji produktów.</p>
+                </div>
+                
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Producenci sprzętu</h3>
+                    <p>Zaprezentuj swój katalog części w atrakcyjny i funkcjonalny sposób.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Gotowy na zwiększenie sprzedaży?</h2>
+            <p>Dołącz do firm, które już teraz wykorzystują potencjał interaktywnych diagramów wspieranych przez sztuczną inteligencję.</p>
+            <a href="#" class="cta-button">Skontaktuj się z nami!</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Schematio. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
 </body>
 </html>
