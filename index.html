@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schematio – Interaktywne Diagramy Urządzeń ze Wsparciem AI</title>
+    <title>schematico – Interaktywne Diagramy Urządzeń ze Wsparciem AI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -305,13 +305,79 @@
                 padding: 12px 15px;
             }
         }
+
+        /* Video description content styles */
+        .video-description {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 0 0 12px 12px;
+            padding: 20px;
+            margin-top: -1px;
+            position: relative;
+        }
+        
+        .video-description-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        
+        .video-description-header i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+        
+        .video-description-content {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .video-description-content p {
+            margin-bottom: 10px;
+        }
+        
+        .video-description-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .video-description-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .video-description-content li {
+            margin-bottom: 5px;
+        }
+        
+        .video-description-content strong {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .video-description {
+                padding: 15px;
+            }
+            
+            .video-description-content {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
-            <h1>Schematio – Interaktywne Diagramy Urządzeń ze Wsparciem AI</h1>
+            <h1>schematico – Interaktywne Diagramy Urządzeń ze Wsparciem AI</h1>
             <p>Pozwól swoim klientom kupować szybciej, łatwiej i skuteczniej!</p>
         </div>
     </div>
@@ -320,7 +386,7 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Dlaczego warto wybrać Schematio?</h2>
+                <h2>Dlaczego warto wybrać schematico?</h2>
             </div>
             
             <div class="features">
@@ -353,7 +419,7 @@
                         <i class="fas fa-plug"></i>
                     </div>
                     <h3>Łatwa integracja</h3>
-                    <p>Bezproblemowe połączenie z Twoim obecnym sklepem internetowym.</p>
+                    <p>Bezproblemowe połączenie z Twoim obecnym sklepem internetowym lub wewnętrznym katalogiem części.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -374,7 +440,7 @@
             </div>
             
             <div class="screenshot">
-                <img src="pic1.png" alt="Schematio Example" />
+                <img src="pic1.png" alt="schematico Example" />
             </div>
         </div>
     </section>
@@ -383,7 +449,7 @@
     <section class="section" style="background-color: var(--secondary);">
         <div class="container">
             <div class="section-title">
-                <h2>Jak działa Schematio?</h2>
+                <h2>Jak działa schematico?</h2>
             </div>
             
             <div class="steps">
@@ -413,35 +479,161 @@
                 </div>
             </div>
             
+
             <div class="screenshot">
+                
                 <div class="video-caption">
-                    <i class="fas fa-robot"></i>Automatyczna analiza diagramu. AI oznacza numery części i analizuje dokument z opisem, łącząc je w spójną całość.
+                    <i class="fas fa-robot"></i>Baza danych urządzeń i diagramów
                 </div>
-                <video controls autoplay muted>
-                    <source src="analyze-diagram.m4v" type="video/mp4">
+                <video controls muted>
+                    <source src="diagramy.mp4" type="video/mp4">
                     Twoja przeglądarka nie obsługuje odtwarzania wideo.
                 </video>
-            </div>
-            
-            <div class="screenshot">
-                <div class="video-caption">
-                    <i class="fas fa-draw-polygon"></i>Na diagramie z zaznaczonymi numerami dodatkowo można zaznaczyć obrysy części. AI pomaga wyznaczyć obrysy.
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Organizacja diagramów</strong> w schematico umożliwia:</p>
+                        <ul>
+                            <li>Dodaj urządzenia do bazy danych. </li>
+                            <li>Dodanie informacji o urządzeniu, w tym opisu, cech, zdjęć, ceny, dostępności, itp.</li>
+                            <li>Zarządzanie diagramami, w tym dodawanie, edytowanie, usuwanie, itp.</li>
+                        </ul>
+                    </div>
                 </div>
-                <video controls autoplay muted>
-                    <source src="annotate.m4v" type="video/mp4">
+            </div>
+            <div class="screenshot">
+                
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>Automatyczna analiza etykiet na diagramie i dopasowanie bazy danych do diagramu.
+                </div>
+                <video controls muted>
+                    <source src="inteligentna_analiza_ocr.mp4" type="video/mp4">
                     Twoja przeglądarka nie obsługuje odtwarzania wideo.
                 </video>
-            </div>
-            
-            <div class="screenshot">
-                <div class="video-caption">
-                    <i class="fas fa-eye"></i>Strona z widokiem dla klienta. Każde urządzenia ma własną podstronę z listą diagramów. Łatwa nawigacja i wizualna reprezentacja urządzenia pozwala na szybki wybór części. Link do sklepu umoliwia bezbolesny zakup.
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Inteligentna analiza OCR</strong> automatycznie:</p>
+                        <ul>
+                            <li>Rozpoznaje etykiety i numery części na diagramach</li>
+                            <li>Dopasowuje wykryte teksty do bazy danych produktów</li>                            
+                            <li>Oszczędza godziny pracy przy ręcznym wprowadzaniu danych</li>
+                        </ul>
+                        <p>Technologia AI znacznie przyspiesza proces tworzenia interaktywnych diagramów.</p>
+                    </div>
                 </div>
-                <video controls autoplay muted>
-                    <source src="view_parts.m4v" type="video/mp4">
+            </div>
+
+            <div class="screenshot">
+                
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>Zaznaczanie części jest szybkie i intuicyjne.
+                </div>
+                <video controls muted>
+                    <source src="fast_item_selection.mp4" type="video/mp4">
                     Twoja przeglądarka nie obsługuje odtwarzania wideo.
                 </video>
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Szybkie zaznaczanie części</strong> zapewnia:</p>
+                        <ul>
+                            <li>Intuicyjny interfejs typu "kliknij i zaznacz"</li>
+                            <li>Możliwość precyzyjnego określenia obszarów części</li>
+                            <li>Automatyczne podpowiedzi podczas zaznaczania</li>
+                            <li>Szybkiego poprawienia niedokładności automatycznego zaznaczania</li>
+
+                        </ul>
+                        <p>Proces, który wcześniej zajmował godziny, teraz trwa zaledwie kilka minut.</p>
+                    </div>
+                </div>
             </div>
+
+
+            <div class="screenshot">
+                
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>AI pomaga automatycznie zaznaczyć obrysy części na diagramie.
+                </div>
+                <video controls muted>
+                    <source src="auto_segment.mp4" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Automatyczne zaznaczanie obrysów</strong> wykorzystuje AI do:</p>
+                        <ul>
+                            <li>Inteligentnego rozpoznawania kształtów części na diagramie</li>
+                            <li>Precyzyjnego wyznaczania granic każdego komponentu</li>
+                            <li>Automatycznego tworzenia obszarów klikalnych</li>
+                            <li>Dostosowania się do różnych stylów i typów diagramów</li>
+                            <li>Automatyczne dopasowanie etykiet i numerów części do bazy danych</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot">
+                
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>Możesz również korzytać z zdjęć części.
+                </div>
+                <video controls muted>
+                    <source src="also_with_photos.mp4" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Wykorzystanie zdjęć części</strong> wzbogaca doświadczenie klienta:</p>
+                        <ul>
+                            <li>Nie musisz tworzyć rysunków złożeniowych - wykorzystaj zdjęcia części</li>
+                            <li>Możliwość porównania części na diagramie z rzeczywistym wyglądem</
+                        </ul>
+                        <p>Połączenie diagramów z fotografiami tworzy kompletne doświadczenie zakupowe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot">
+                
+                <div class="video-caption">
+                    <i class="fas fa-robot"></i>Klient dostaje stronę z szybką i intuicyjną nawigacją i łatwym szukaniem interesującego go podzespołu.
+                </div>
+                <video controls muted>
+                    <source src="customer_view.mp4" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                </video>
+                <div class="video-description">
+                    <div class="video-description-header">
+                        <i class="fas fa-info-circle"></i>Szczegółowe informacje
+                    </div>
+                    <div class="video-description-content">
+                        <p><strong>Perspektywa klienta końcowego</strong> oferuje:</p>
+                        <ul>
+                            <li>Intuicyjną nawigację bez potrzeby szkolenia</li>
+                            <li>Szybkie wyszukiwanie części po nazwie lub numerze</li>
+                            <li>Intuicyjna nawigacja pomiędzy diagramami</li>
+
+                            <li>Możliwość bezpośredniego przejścia do koszyka zakupów lub do strony z katalogiem części     </li>
+                            <li>Możliwość zmiany języka na stronie</li>
+                        </ul>
+                        <p>Klienci mogą łatwo znaleźć potrzebne części, co przekłada się na wyższą konwersję sprzedaży.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     
@@ -449,7 +641,7 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Kto korzysta ze Schematio?</h2>
+                <h2>Kto korzysta ze schematico?</h2>
             </div>
             
             <div class="clients">
@@ -468,6 +660,13 @@
                     <h3>Producenci sprzętu</h3>
                     <p>Zaprezentuj swój katalog części w atrakcyjny i funkcjonalny sposób.</p>
                 </div>
+                <div class="client-card">
+                    <div class="client-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Właściciele zakładów produkcyjnych</h3>
+                    <p>Szybko zidentifikuj uszkodzone części i zamień je na nowe.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -484,7 +683,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Schematio. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; 2025 Schematico. Wszystkie prawa zastrzeżone.</p>
         </div>
     </footer>
 </body>
