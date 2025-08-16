@@ -41,7 +41,6 @@ Nawet jeśli część składa się z wielu oddzielnych fragmentów, proces jest 
 
 Przygotowane diagramy zawierające zaznaczone części są przekazywane do klienta. Klient dostaje stronę z szybką i intuicyjną nawigacją i łatwym szukaniem interesującego go podzespołu. Po wybraniu części dostaje dodatkowe informacje o produkcie wraz z możliwością zakupu lub odszukaniem  części w magazynie.
 
-Informacje o częściach mogą również zawierać zdjęcia poglądowe ułatwiające identyfikację.
 
 
 
